@@ -1,0 +1,35 @@
+.listado-productos{
+  margin: 5px 5px 5px 5px;
+  width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.listado-productos div{
+  margin: 5px 5px 5px 5px;
+  width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.listado-productos div .card{
+  width: 200px;
+}
+.header{
+  background-color: #b9965d;
+}
+
+.footer{
+ padding: 5px;
+ display: flex;
+ flex-wrap: wrap;
+}
+.footer p{
+  padding: 5px 10px 5px 10px;
+  margin: 5px 10px 5px 10px;
+}
+.app{
+  background-color: bisque ;
+  height: 700px;
+}
