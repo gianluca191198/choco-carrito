@@ -4,8 +4,8 @@ const Header = ({titulo}) => {
 
     return ( 
         <Fragment>
-            <nav class="navbar navbar-dark header">
-                <h2>{titulo}</h2>
+            <nav className="header">
+                <h3>{titulo}</h3>
             </nav>
         </Fragment>
      );

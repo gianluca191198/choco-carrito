@@ -1,14 +1,18 @@
 .listado-productos{
   margin: 5px 5px 5px 5px;
-  width: 600px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  border-style: solid;
+  border-color: #b9965d;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .listado-productos div{
   margin: 5px 5px 5px 5px;
-  width: 800px;
+  width: 500px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -18,18 +22,51 @@
 }
 .header{
   background-color: #b9965d;
+  padding: 5px;
+  margin-bottom:10px ;
 }
 
 .footer{
- padding: 5px;
  display: flex;
  flex-wrap: wrap;
+ position: absolute;
+ bottom: 0;
+ width: 100%;
 }
 .footer p{
-  padding: 5px 10px 5px 10px;
-  margin: 5px 10px 5px 10px;
+  padding: 10px 10px 10px 10px;
+  margin: 0px 10px 0px 10px;
+
 }
-.app{
+.footer p:hover{
+  background-color: #343a40;
+}
+
+body {
   background-color: bisque ;
-  height: 700px;
+  margin:0;
+  padding:0;
+}
+
+.icono-carrito{
+  height: 50px;
+  padding: 5px 10px 5px 10px;
+  margin-right: 15px;
+}
+
+.icono-carrito:hover{
+  background-color: #d4bc95;
+  border-radius: 5px;
+}
+
+.boton{
+  border-color: #b9965d !important;
+  color: #b9965d !important;
+  padding: 3px !important;
+}
+
+.boton:hover{
+  border-color: #b9965d !important;
+  background-color: #b9965d !important;
+  color: black !important;
 }

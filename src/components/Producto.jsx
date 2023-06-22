@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 const Producto = ({producto, productos, changuito, agregarProducto}) => {
 
@@ -7,17 +8,24 @@ const Producto = ({producto, productos, changuito, agregarProducto}) => {
 
     //Funcion para comprar un producto
     const seleccionarProducto = (id) => {
-        const producto = productos.filter(
+        const productoSeleccionado = productos.filter(
             producto => producto.id === id
         )[0];
+        const producto = {
+            id: uuidv4(),
+            articulo: productoSeleccionado.articulo,
+            precio: productoSeleccionado.precio,
+            gramos: productoSeleccionado.gramos
+        };
+        
         agregarProducto([...changuito, producto])
-        console.log(changuito);
     }
 
-    // const eliminarProducto = (id) => {
-    //     productos = productos.filter(item => item.id !== id)
-    //     agregarProducto();
-    // };
+    //Funcion para borrar productos
+    const borrarProducto = (id) => {
+      const carritoActualizado = changuito.filter(producto => producto.id !== id);
+      agregarProducto(carritoActualizado);
+     };
 
     return ( 
         <Fragment>
@@ -29,14 +37,16 @@ const Producto = ({producto, productos, changuito, agregarProducto}) => {
                 productos 
                 ? 
                 <button
+                    className='btn boton'
                     type="button"
                     onClick={ () => seleccionarProducto(id) }>
                     Comprar
                 </button>
                 :
                 <button
+                    className='btn boton'
                     type="button"
-                    onClick={ () => seleccionarProducto(id) }>
+                    onClick={ () => borrarProducto(id) }>
                     Eliminar
                 </button>
 

@@ -1,19 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './changuito.css'
 import Producto from './Producto';
+import carrito from '../resources/carrito.svg';
 
-const Changuito = ({changuito}) => {
+const Changuito = ({changuito, agregarProducto}) => {
+    var [mostrarCarrito, toggleCarrito]  = useState(false);
+
+    const handleClick = event => {
+        toggleCarrito(mostrarCarrito ? false : true);
+      };
+
     return ( 
         <>
             <div className='changuito'>
-                <h3>Changuito de compras</h3>
+            <img className="icono-carrito" src={carrito} onClick={handleClick}></img>
                 {
-                    changuito.map( producto => (
-                        <Producto
-                            key = {producto.id}
-                            producto={producto}
-                        />
-                    ))
+                    mostrarCarrito ?
+                        changuito.map( producto => (
+                            <Producto
+                                key = {producto.id}
+                                producto={producto}
+                                changuito={changuito}
+                                agregarProducto={agregarProducto}
+                            />
+                        ))
+                    :
+                    <div></div>
                 }
             </div>
         </>
