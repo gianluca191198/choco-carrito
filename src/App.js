@@ -7,6 +7,20 @@ import Changuito from './components/Changuito';
 
 function App() {
 
+  //Creamos un hook para guardar la url del gatito
+  const [url, editar] = useState(""); // cambiar nombre de variable url
+
+  // Funcion para consultar API
+  const consultarAPI = async() => {
+    try{
+        const api = await fetch("urlQueElija"); //TODO: buscar una api
+        const resultado = await api.json();
+        editar(resultado[0].url)
+    } catch (error){
+      console.log(error);
+    }
+  }
+
     //Iniciamos nuestro local storage
     let changuitoGuardado = JSON.parse(localStorage.getItem('changuito'));
     if(!changuitoGuardado) {
@@ -60,6 +74,11 @@ function App() {
         changuito={changuito}
         agregarProducto={agregarProducto}
         key="1"/>
+      <button
+        onclick="consultarAPI">
+          Traer gatito
+      </button>
+      <img src={url}></img>
       <Footer/>
     </div>
   );
