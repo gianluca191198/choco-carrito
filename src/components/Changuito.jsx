@@ -16,14 +16,17 @@ const Changuito = ({changuito, agregarProducto}) => {
             <img className="icono-carrito" src={carrito} onClick={handleClick}></img>
                 {
                     mostrarCarrito ?
-                        changuito.map( producto => (
-                            <Producto
-                                key = {producto.id}
-                                producto={producto}
-                                changuito={changuito}
-                                agregarProducto={agregarProducto}
-                            />
-                        ))
+                        changuito.length > 0?
+                            changuito.map( producto => (
+                                <Producto
+                                    key = {producto.id}
+                                    producto={producto}
+                                    changuito={changuito}
+                                    agregarProducto={agregarProducto}
+                                />
+                            ))
+                            :
+                            <div className='card'>Changuito vacio</div>
                     :
                     <div></div>
                 }
